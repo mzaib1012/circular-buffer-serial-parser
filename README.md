@@ -1,5 +1,3 @@
-# Create a professional, long-form Markdown string for the README
-readme_content = """# ⚡ An Ultra-Efficient, Interrupt-Driven Serial Frame Packet Parser
 ### 🚀 Non-Blocking Embedded Architecture Backed by a Lock-Free FIFO Circular Queue & CRC-16 Integrity
 
 ---
