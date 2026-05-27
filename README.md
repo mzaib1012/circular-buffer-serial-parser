@@ -21,17 +21,11 @@ The core data structure is a fixed-size ring buffer utilizing an array and track
 ### 2. Finite State Machine (FSM) Packet Processing
 The protocol frame format is explicitly defined to guarantee data framing and boundary alignment:
 
-```
-
 ```text
-README.md generated successfully.
-
-```text
-+----------------+------------------+-----------------------+--------------------+----------------+
-|  SOF (1 Byte)  |  Length (1 Byte) |  Payload (N Bytes)   |   CRC-16 (2 Bytes) |  EOF (1 Byte)  |
-|     0x02       |   Length of Data |   Actual Serial Data  |  CCITT Checksum    |     0x03       |
-+----------------+------------------+-----------------------+--------------------+----------------+
-
++--------------+------------------+-----------------------+--------------------+--------------+
+| SOF (1 Byte) |  Length (1 Byte) |  Payload (N Bytes)    |   CRC-16 (2 Bytes) | EOF (1 Byte) |
+|    0x02      |   Length of Data |   Actual Serial Data  |  CCITT Checksum    |    0x03      |
++--------------+------------------+-----------------------+--------------------+--------------+
 ```
 
 The parser iterates through a non-blocking execution cycle tracking these states:
