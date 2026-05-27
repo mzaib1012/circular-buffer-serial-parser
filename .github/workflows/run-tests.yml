@@ -1,0 +1,23 @@
+name: Compile and Run C Serial Parser
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository code
+      uses: actions/checkout@v4
+
+    - name: Compile C Project modules
+      run: |
+        gcc -Iinclude src/main.c src/ring_buffer.c src/parser.c -o serial_parser_demo
+
+    - name: Execute Parser Simulation
+      run: |
+        ./serial_parser_demo
